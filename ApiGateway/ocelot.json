@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/company",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,23 +9,12 @@
           "Port": 8000
         }
       ],
-      "UpstreamPathTemplate": "/gateway/company",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/api/companies/{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "companies"
     },
     {
-      "DownstreamPathTemplate": "/api/company/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8000
-        }
-      ],
-      "UpstreamPathTemplate": "/gateway/company/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/employee",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -33,20 +22,31 @@
           "Port": 8001
         }
       ],
-      "UpstreamPathTemplate": "/gateway/employee",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/api/employees/{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "employees"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "companies",
+      "Config": [
+        {
+          "Name": "Companies API",
+          "Version": "v1",
+          "Url": "http://localhost:8000/swagger/v1/swagger.json"
+        }
+      ]
     },
     {
-      "DownstreamPathTemplate": "/api/employee/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
+      "Key": "employees",
+      "Config": [
         {
-          "Host": "localhost",
-          "Port": 8001
+          "Name": "Employees API",
+          "Version": "v1",
+          "Url": "http://localhost:8001/swagger/v1/swagger.json"
         }
-      ],
-      "UpstreamPathTemplate": "/gateway/employee/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
+      ]
     }
   ],
   "GlobalConfiguration": {
