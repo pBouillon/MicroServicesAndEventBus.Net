@@ -5,6 +5,7 @@ namespace Employee.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [Produces("application/json")]
     public class EmployeeController : ControllerBase
     {
         [HttpGet]

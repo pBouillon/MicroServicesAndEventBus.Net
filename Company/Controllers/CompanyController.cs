@@ -5,6 +5,7 @@ namespace Company.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [Produces("application/json")]
     public class CompanyController : ControllerBase
     {
         [HttpGet]
