@@ -1,5 +1,19 @@
 {
   "Routes": [
+    // Companies
+    {
+      "DownstreamPathTemplate": "/api",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/companies",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "companies"
+    },
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -12,6 +26,21 @@
       "UpstreamPathTemplate": "/api/companies/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
       "SwaggerKey": "companies"
+    },
+
+    // Employees
+    {
+      "DownstreamPathTemplate": "/api",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/employees",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "employees"
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
